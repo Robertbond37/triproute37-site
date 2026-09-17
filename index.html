@@ -296,15 +296,15 @@ section+section{border-top:1px solid var(--line)}
     <label id="fromwrap" style="display:none">출발지<select id="from"><option>사당</option><option>잠실</option></select></label>
    <label>대표자 이름<input type="text" id="name" autocomplete="name" placeholder="김○○"></label>
    <label>이메일<input type="email" id="email" autocomplete="email" placeholder="you@example.com"></label>
-   <label class="chk"><input type="checkbox" id="fam"> (아이가 있는 팀) 가족관계증명서를 결제 후 이메일로 보내고, 대회 당일 지참하겠습니다</label>
+   
   </div>
   <div class="sum">
    <div class="row"><span>한 팀 (4명까지)</span><span>620,000원</span></div>
    <div class="row"><span id="kidlabel">아이 1명 할인</span><span id="kiddisc">−37,000원</span></div>
    <div class="row"><span id="buslabel">우등버스</span><span id="busfee">0원</span></div>
    <div class="tot"><span>합계</span><b id="total">583,000원</b></div>
-   <button class="btn pay" id="pay" type="button">결제하러 가기</button>
-   <div class="note">결제는 리빙루트37 상점(livingroute37.com)에서 카드·간편결제로 합니다. 5,000팀이 모이면 2026년 11월 14~15일, 3,000팀이면 2027년 4월 개최. 그에 못 미치면 전액 환불. 아이가 있는 팀은 결제 후 가족관계증명서(PDF·사진)를 livingroute37@gmail.com 으로 보내 주세요.</div>
+   <button class="btn pay" id="pay" type="button">신청서 쓰기</button>
+   <div class="note">신청서를 내면 바로 결제 화면으로 이어집니다. 아이가 있는 팀은 신청서에 가족관계증명서(PDF·사진)를 붙여야 할인된 값으로 결제됩니다. 결제는 리빙루트37 상점(livingroute37.com)에서 카드·간편결제로. 5,000팀이 모이면 2026년 11월 14~15일, 3,000팀이면 2027년 4월 개최. 그에 못 미치면 전액 환불.</div>
   </div>
  </div>
 </section>
@@ -318,7 +318,7 @@ section+section{border-top:1px solid var(--line)}
  function calc(){
   var s=state(), t=BASE-K*s.k+s.b;
   fromwrap.style.display=bus.checked?'':'none';
-  pay.textContent= s.over? '한 팀은 4명까지입니다 — 두 팀으로 나눠 주세요' : '결제하러 가기 · '+won(t);
+  pay.textContent= s.over? '한 팀은 4명까지입니다 — 두 팀으로 나눠 주세요' : '신청서 쓰기 · '+won(t);
   pay.disabled=s.over;
   document.getElementById('kidlabel').textContent= s.k? '아이 '+s.k+'명 할인':'아이 할인';
   document.getElementById('kiddisc').textContent= s.k? '−'+won(K*s.k):'0원';
@@ -328,11 +328,9 @@ section+section{border-top:1px solid var(--line)}
  }
  pay.addEventListener('click',function(){
   var s=state(); if(s.over) return;
-  if(s.k>0 && !document.getElementById('fam').checked){alert('아이가 있는 팀은 가족관계증명서 안내에 체크해 주세요.');return;}
-  var items=TEAM[s.k]+':1'; if(bus.checked) items+=','+BUSV[from.value]+':'+s.n;
   var course=document.getElementById('course').value, name=document.getElementById('name').value.trim(), email=document.getElementById('email').value.trim();
-  var q='attributes[코스]='+encodeURIComponent(course)+'&attributes[인원]='+encodeURIComponent('어른 '+s.a+' · 아이 '+s.k)+(name?'&attributes[대표자]='+encodeURIComponent(name):'')+(email?'&checkout[email]='+encodeURIComponent(email):'')+'&note='+encodeURIComponent('고성 가족 마라톤 · '+course+' · 어른 '+s.a+' 아이 '+s.k+(bus.checked?' · 버스 '+from.value+' '+s.n+'명':''));
-  window.location.href='https://livingroute37.com/cart/'+items+'?'+q;
+  var q='course='+encodeURIComponent(course)+'&a='+s.a+'&k='+s.k+'&bus='+encodeURIComponent(bus.checked?'예':'아니오')+'&from='+encodeURIComponent(from.value)+(name?'&name='+encodeURIComponent(name):'')+(email?'&email='+encodeURIComponent(email):'');
+  window.location.href='https://tally.so/r/5BN4ob?'+q;
  });
  kids.addEventListener('change',calc); adults.addEventListener('change',calc); bus.addEventListener('change',calc); from.addEventListener('change',calc); calc();
 })();
