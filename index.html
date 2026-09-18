@@ -96,6 +96,7 @@ section+section{border-top:1px solid var(--line)}
 .incl{margin:22px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
 .incl li{font-size:13px;border:1px solid var(--line);border-radius:3px;padding:4px 10px;color:var(--ink-soft);background:var(--surface)}
 .fine{font-size:13px;color:var(--moss-soft);margin-top:18px}
+
 /* ways */
 .ways{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .way{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:26px 24px;box-shadow:var(--shadow)}
@@ -158,7 +159,11 @@ a.slot{text-decoration:none;color:inherit;transition:transform .15s}a.slot:hover
 .close .who .lg{display:flex;align-items:center;gap:10px;color:var(--band-ink)}
 .close .who svg{width:34px;height:34px;color:var(--band-ink)}
 .close .who b{font-weight:500;color:var(--band-ink)}
-.close .foot{margin-top:38px;font-size:12px;color:var(--band-muted)}
+.close .sites{margin-top:40px;padding-top:28px;border-top:1px solid var(--band-card);display:flex;flex-wrap:wrap;gap:12px 36px;align-items:flex-start;font-size:14px}
+.sites .k{flex-basis:100%;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--band-muted)}
+.sites a{color:var(--band-ink);text-decoration:none;display:flex;flex-direction:column;gap:2px}
+.sites a small{color:var(--band-muted);font-size:12px}.sites a:hover{color:var(--fire)}
+.foot{margin-top:26px;font-size:12px;color:var(--band-muted)}
 @media (max-width:760px){.hero .grid,.days,.price,.ways,.apply{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.logos{grid-template-columns:1fr 1fr}.top nav{display:none}section{padding-block:52px}.btn.ghost{margin:10px 0 0}}
 @media (prefers-reduced-motion:no-preference){.card,.way{transition:transform .2s}.card:hover,.way:hover{transform:translateY(-2px)}}
 </style>
@@ -369,7 +374,13 @@ a.slot{text-decoration:none;color:inherit;transition:transform .15s}a.slot:hover
   <div class="lg"><svg viewBox="0 0 240 240" aria-hidden="true"><path d="M 120 42 A 78 78 0 1 1 42 120" fill="none" stroke="#3E9E5B" stroke-width="24" stroke-linecap="round"/><path d="M 42 120 A 78 78 0 0 1 120 42" fill="none" stroke="#EF7A2E" stroke-width="24" stroke-linecap="round"/><circle cx="120" cy="42" r="17" fill="#EF7A2E"/><g fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M 120 160 L 120 104"/><path d="M 120 128 C 120 104 104 90 82 90 C 82 112 96 128 120 128 Z"/><path d="M 120 112 C 120 90 136 78 158 78 C 158 100 144 112 120 112 Z"/></g></svg><span><b>네오플랜트</b> · 주최</span></div>
   <div>농업회사법인 주식회사 네오플랜트 · 대표 김세윤 · livingroute37@gmail.com</div>
  </div>
- <div class="foot">© 2026 triproute37.com · 후원 예정: 고성군 · 성평등가족부 · 강원일보</div>
+ <div class="sites"><span class="k">같이 만드는 곳</span>
+  <a href="https://2025after.com/">2025after<small>이 대회를 여는 회사</small></a>
+  <a href="https://triproute37.com/">트립루트37<small>여행 · 기록</small></a>
+  <a href="https://livingroute37.com/">리빙루트37<small>생활 제품 · 결제는 여기서</small></a>
+  <a href="https://www.youtube.com/@triproute37">유튜브 트립루트37<small>대회 영상</small></a>
+ </div>
+ <div class="foot">© 2026 triproute37.com · 후원 예정: 고성군 · 성평등가족부 · 강원일보 · <a href="mailto:ceo@2025after.com" style="color:inherit">ceo@2025after.com</a></div>
 </div>
 </div>
 
