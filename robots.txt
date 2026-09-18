@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /pay.html
+
+Sitemap: https://marathon.triproute37.com/sitemap.xml
