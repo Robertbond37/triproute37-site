@@ -24,8 +24,8 @@ a.btn{display:inline-block;background:#EF7A2E;color:#fff;text-decoration:none;pa
 </div>
 <script>
 (function(){
- var TEAM={0:'52370531221792',1:'52370531254560',2:'52370531287328',3:'52370531320096'};
- var BUSV={'사당':'52370546229536','잠실':'52370546262304'};
+ var TEAM={0:'49593727910043',1:'49593727942811',2:'49593727975579',3:'49593728008347'};
+ var BUSV={'사당':'49593755599003','잠실':'49593755631771'};
  var BASE=690000,K=37000,BUS=40000;
  var q=new URLSearchParams(location.search);
  var num=function(v){var n=parseInt(String(v||'').replace(/[^0-9]/g,''),10);return isNaN(n)?0:n};
@@ -38,8 +38,8 @@ a.btn{display:inline-block;background:#EF7A2E;color:#fff;text-decoration:none;pa
  var b=busOn?BUS*n:0, total=BASE-K*k+b;
  var items=TEAM[k]+':1'+(busOn?','+BUSV[from]+':'+n:'');
  var attrs='attributes[코스]='+encodeURIComponent(course)+'&attributes[인원]='+encodeURIComponent('어른 '+a+' · 아이 '+k)+(name?'&attributes[대표자]='+encodeURIComponent(name):'')+(sid?'&attributes[신청번호]='+encodeURIComponent(sid):'')+(email?'&checkout[email]='+encodeURIComponent(email):'')+'&note='+encodeURIComponent('고성 가족 마라톤 신청서 접수 · '+course+' · 어른 '+a+' 아이 '+k+(busOn?' · 버스 '+from+' '+n+'명':''));
- var url='https://livingroute37.com/cart/'+items+'?'+attrs;
- box.innerHTML='<h1>신청서가 접수됐습니다. 이제 결제만 남았습니다.</h1><div class="sum"><div><span>한 팀 (4명까지)</span><span>'+won(BASE)+'</span></div>'+(k?'<div><span>아이 '+k+'명 할인</span><span>−'+won(K*k)+'</span></div>':'')+(busOn?'<div><span>우등버스 '+from+' '+n+'명</span><span>'+won(b)+'</span></div>':'')+'<div><b>합계</b><b>'+won(total)+'</b></div></div><p>3초 뒤 리빙루트37 상점 결제 화면으로 넘어갑니다. 안 넘어가면 아래 버튼을 누르세요.</p><a class="btn" href="'+url+'">결제하러 가기 · '+won(total)+'</a>';
+ var url='https://h110yc-1e.myshopify.com/cart/'+items+'?locale=ko&'+attrs;
+ box.innerHTML='<h1>신청서가 접수됐습니다. 이제 결제만 남았습니다.</h1><div class="sum"><div><span>한 팀 (4명까지)</span><span>'+won(BASE)+'</span></div>'+(k?'<div><span>아이 '+k+'명 할인</span><span>−'+won(K*k)+'</span></div>':'')+(busOn?'<div><span>우등버스 '+from+' '+n+'명</span><span>'+won(b)+'</span></div>':'')+'<div><b>합계</b><b>'+won(total)+'</b></div></div><p>3초 뒤 트립루트37 결제 화면으로 넘어갑니다. 안 넘어가면 아래 버튼을 누르세요.</p><a class="btn" href="'+url+'">결제하러 가기 · '+won(total)+'</a>';
  setTimeout(function(){location.href=url},3000);
 })();
 </script>
